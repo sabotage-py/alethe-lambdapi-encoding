@@ -440,8 +440,3 @@ symbol equiv_neg2 p q : Prf ((p = q) ∨ ¬ p ∨ ¬ q) ≔ begin
     refine not_equiv2 p q _;
     refine npeq;
 end;
-
-symbol t4006 : Prf (p1 = p1) ≔ begin
-refine eq_reflexive p1;
-end;
-
