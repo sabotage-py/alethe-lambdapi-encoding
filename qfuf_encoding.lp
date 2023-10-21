@@ -441,66 +441,6 @@ symbol equiv_neg2 p q : Prf ((p = q) ∨ ¬ p ∨ ¬ q) ≔ begin
     refine npeq;
 end;
 
-
-symbol p0 : Term Bool;
-symbol p1 : Term Bool;
-symbol p2 : Term Bool;
-symbol p3 : Term Bool;
-symbol p4 : Term Bool;
-symbol p5 : Term Bool;
-symbol p6 : Term Bool;
-
-symbol and_simplify_trial : Prf ((p0 ∧ ¬ ¬ p1 ∧ p3 ∧ p4 ∧ ¬ ¬ ¬ ¬ ¬ p1 ∧ p5) = ⊥) ≔ begin 
-    apply classic;
-    assume nh;
-    refine nh _;
-    have h1 : Prf ((p0 ∧ ¬ ¬ p1 ∧ p3 ∧ p4 ∧ ¬ ¬ ¬ ¬ ¬ p1 ∧ p5) ⇒ ⊥) {
-        apply classic;
-        assume nf; 
-        refine nf _; 
-        assume h4; 
-        have h5 : Prf (¬ ¬ p1) {refine ∧e1 _ _ (∧e2 _ _ h4) ;};
-        have h6 : Prf (¬ ¬ ¬ ¬ ¬ p1) {refine ∧e1 _ _ (∧e2 _ _ (∧e2 _ _ (∧e2 _ _ (∧e2 _ _ h4))));};
-    // have ht : Prfc (¬ ¬ ¬ p1) {admit;};
-        refine h6 _;
-        assume h7; 
-        refine h7 _; 
-        refine h5;
-    };
-    have h2 : Prf (⊥ ⇒ (p0 ∧ ¬ ¬ p1 ∧ p3 ∧ p4 ∧ ¬ ¬ ¬ ¬ ¬ p1 ∧ p5)) 
-    { assume h4; 
-    apply ⊥e; 
-    apply h4; };
-    refine prop_ext1 _ _ (∧i _ _ h1 h2); 
-end;
-
-
-symbol t1000 : Prf ¬ (p1 = p2) ;
-symbol t2000 : Prf (p3 = p4) ;
-symbol t2100 : Prf (p1 ⇒ p2) ;
-symbol t2200 : Prf (p1 xor p5) ;
-symbol t2300 : Prf ¬ (p2 xor p6) ;
-symbol t3001 : Prf (¬ p1 ∨ ¬ p2) ≔ begin
-refine not_equiv2 _ _ t1000;
-end;
-symbol t3002 : Prf (p1 ∨ p2) ≔ begin
-refine not_equiv1 _ _ t1000;
-end;
-symbol t4001 : Prf (¬ p3 ∨ p4) ≔ begin
-refine equiv1 _ _ t2000;
-end;
-symbol t4002 : Prf (p3 ∨ ¬ p4) ≔ begin
-refine equiv2 _ _ t2000;
-end;
-symbol t4003 : Prf (¬ p1 ∨ p2) ≔ begin
-refine implies _ _ t2100;
-end;
-symbol t4004 : Prf (p1 ∨ p5) ≔ begin
-refine xor1 _ _ t2200;
-end;
-symbol t4005 : Prf (¬ p2 ∨ p6) ≔ begin
-refine not_xor2 _ _ t2300;
-end;
 symbol t4006 : Prf (p1 = p1) ≔ begin
 refine eq_reflexive p1;
 end;
