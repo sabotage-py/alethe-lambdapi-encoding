@@ -1,5 +1,5 @@
 .POSIX:
-SRC =
+SRC = $(wildcard *.lp)
 OBJ = $(SRC:.lp=.lpo)
 .SUFFIXES:
 
