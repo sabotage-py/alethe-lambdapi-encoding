@@ -10,7 +10,7 @@ based on the λΠ-calculus modulo rewriting. You may refer to [this paper](https
 
 This package encodes some preliminary logic and simple proof rules (as given in [this](https://verit.loria.fr/documentation/alethe-spec.pdf)) in Lambdapi. The [Alethe-to-Lambdapi translator](https://github/com/sabotage-py/alethe-lambdapi) builds upon this to encode more complex rules in Lambdapi.
 
-For example, the file `qfuf.lp` encodes the QF_UF logic (as defined [here](http://smtlib.cs.uiowa.edu/logics.shtml)).
+For example, the file `qfuf.lp` encodes the QF_UF logic (as defined [here](http://smtlib.cs.uiowa.edu/logics.shtml)) and some simple Alethe rules that deal with Boolean logic.
 
 Compilation from the source
 ---------------------------
